@@ -4,64 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/alekseyprilepskiy/">
-    <title>Социальная инженерия — SafeGuide</title>
+    <title>Социальная инженерия и Чек-лист — SafeGuide</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <nav>
-            <h1>🔒 SafeGuide</h1>
+            <div class="logo">🔒 SafeGuide</div>
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="passwords.html">Пароли</a></li>
                 <li><a href="devices.html">Устройства</a></li>
                 <li><a href="privacy.html">Приватность</a></li>
-                <li><a href="social.html">Безопасность</a></li>
+                <li><a href="social.html">Чек-лист</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <h2>🛡️ Чек-лист безопасности и фишинг</h2>
+        <h2 class="page-title">🛡️ Социальная инженерия и Чек-лист защиты</h2>
+        <p class="page-subtitle">Даже самые надежные пароли и антивирусы бессильны, если мошенники обманом заставят вас отдавать данные лично. Узнайте, как распознавать манипуляции, и проверьте свой уровень защиты.</p>
 
-        <div class="card">
-            <h3>Ваш прогресс защиты</h3>
+        <!-- Блок с чек-листом -->
+        <div class="card" style="border-color: var(--accent-blue);">
+            <h3>📊 Персональный чек-лист безопасности</h3>
+            <p>Отмечайте выполненные пункты. Ваш прогресс сохраняется в браузере автоматически!</p>
+            
             <div class="progress-container">
                 <div class="progress-bar" id="progress-bar">0%</div>
             </div>
 
-            <div class="checklist-item">
-                <input type="checkbox" id="check1">
-                <label for="check1">Установил менеджер паролей и сменил слабые пароли</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check2">
-                <label for="check2">Включил 2FA на почте и в социальных сетях</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check3">
-                <label for="check3">Включил шифрование диска (BitLocker / FileVault)</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check4">
-                <label for="check4">Установил блокировщик рекламы и трекеров (uBlock Origin)</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check5">
-                <label for="check5">Настроил автообновления операционной системы</label>
+            <div style="margin-top: 1rem;">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Установил менеджер паролей и заменил повторяющиеся пароли</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Включил 2FA через приложение-аутентификатор на всех важных сервисах</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Включил полнодисковое шифрование (BitLocker / FileVault) на ПК</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Установил надежный блокировщик рекламы и трекеров (uBlock Origin)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Поставил длинный ПИН-код (от 6 цифр) и скрыл уведомления на экране блокировки</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Проверил почту на утечки в сервисе Have I Been Pwned</label>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h3>⚠️ Как распознать фишинг</h3>
-            <ul>
-                <li>Всегда проверяйте доменное имя сайта (например, `g00gle.com` вместо `google.com`).</li>
-                <li>Банки и поддержка никогда не просят назвать код из СМС или CVV-код.</li>
-                <li>Не переходите по ссылкам из подозрительных писем и сообщений в мессенджерах.</li>
-            </ul>
+        <div class="callout danger">
+            <b>🚨 Помните:</b> Ни один банк, госсервис или служба поддержки никогда не требуют назвать по телефону СМС-коды, PIN-код карт или пароли от личных кабинетов!
         </div>
-    </main>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+        <div class="grid">
+            <!-- Блок 1: Фишинг -->
+            <div class="card">
+                <h3>🎣 1. Фишинг (Phishing)</h3>
+                <p>Создание поддельных сайтов и писем, неотличимых от оригинальных (например, банкоматов, соцсетей или доставки
