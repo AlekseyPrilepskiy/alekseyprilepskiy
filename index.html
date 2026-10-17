@@ -58,9 +58,6 @@
 
             <!-- Счетчик Рамблер/Топ-100 -->
             <div style="opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
-                <a href="https://top100.rambler.ru/home?id=7753071" target="_blank">
-                    <img src="https://counter.rambler.ru/top100.cnt?pid=7753071" alt="Rambler's Top100" style="border:0;" />
-                </a>
                 <script>
                     (function (w, d, c) {
                     (w[c] = w[c] || []).push(function() {
@@ -73,10 +70,23 @@
                     s.type = "text/javascript";
                     s.async = true;
                     s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//st.top100.ru/top100/top100.js";
-                    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else { f(); }
                     })(window, document, "_top100q");
                 </script>
+                <noscript>
+                <img src="//counter.rambler.ru/top100.cnt?pid=7753071" alt="Топ-100" />
+                </noscript>
+                
+                <a href="https://top100.rambler.ru/home?id=7753071" target="_blank" title="Rambler/Топ-100" style="text-decoration: none;">
+                    <span style="background: #1e293b; color: #38bdf8; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; border: 1px solid var(--border-color); display: inline-block;">
+                        🛡️ Top-100
+                    </span>
+                </a>
             </div>
+            
             <!-- 3. Счетчик Top.Mail.Ru -->
             <div style="opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
                 <!-- Top.Mail.Ru counter -->
