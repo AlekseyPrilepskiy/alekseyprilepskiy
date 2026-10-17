@@ -1,3 +1,17 @@
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #151d2a;
+    --bg-card-hover: #1e293b;
+    --accent-blue: #38bdf8;
+    --accent-purple: #818cf8;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #2e3b4e;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --success-color: #10b981;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,16 +19,21 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.7;
 }
 
+/* Шапка и Навигация */
 header {
-    background: #1e293b;
+    background: rgba(21, 29, 42, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
     padding: 1rem 2rem;
-    border-bottom: 1px solid #334155;
 }
 
 nav {
@@ -25,6 +44,14 @@ nav {
     margin: 0 auto;
 }
 
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -32,122 +59,182 @@ nav ul {
 }
 
 nav a {
-    color: #94a3b8;
+    color: var(--text-secondary);
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.2s;
 }
 
 nav a:hover {
-    color: #38bdf8;
+    color: var(--accent-blue);
 }
 
-.hero {
-    max-width: 800px;
-    margin: 4rem auto;
-    text-align: center;
-    padding: 0 1rem;
+/* Основной контейнер */
+.container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+h2.page-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff, var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-    color: #94a3b8;
+p.page-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.btn {
-    display: inline-block;
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-
-.btn:hover {
-    background: #0ea5e9;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #64748b;
-    border-top: 1px solid #334155;
-    margin-top: 4rem;
-}
-
-/* Контейнеры и карточки */
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
 .card {
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.1);
 }
 
 .card h3 {
+    color: var(--accent-blue);
+    font-size: 1.3rem;
     margin-bottom: 0.75rem;
-    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-/* Виджет проверки пароля */
+.card p, .card ul {
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+}
+
+.card ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Информационные блоки (Callouts) */
+.callout {
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+}
+
+.callout.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--danger-color);
+    color: #fca5a5;
+}
+
+.callout.warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--warning-color);
+    color: #fde68a;
+}
+
+.callout.info {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-blue);
+    color: #bae6fd;
+}
+
+/* Интерактивный виджет паролей */
 .interactive-widget {
+    background: #0f172a;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     margin-top: 1rem;
 }
 
 .interactive-widget input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.85rem;
     border-radius: 6px;
-    border: 1px solid #334155;
-    background: #0f172a;
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
     color: #fff;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-/* Прогресс-бар и Чек-лист */
+.interactive-widget input:focus {
+    border-color: var(--accent-blue);
+}
+
+#password-result {
+    margin-top: 0.75rem;
+    font-weight: 600;
+}
+
+/* Чек-лист и Прогресс-бар */
 .progress-container {
     background: #0f172a;
-    border-radius: 8px;
+    border-radius: 20px;
     height: 24px;
     width: 100%;
     overflow: hidden;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-color);
 }
 
 .progress-bar {
-    background: #38bdf8;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
     height: 100%;
     width: 0%;
     text-align: center;
     color: #0f172a;
     font-weight: bold;
     font-size: 0.85rem;
-    transition: width 0.3s ease;
+    line-height: 24px;
+    transition: width 0.4s ease;
 }
 
 .checklist-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #334155;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .checklist-item input {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-blue);
     cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 5rem;
+    font-size: 0.9rem;
 }
