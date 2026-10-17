@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/alekseyprilepskiy/">
+    <title>Практикум и Квиз — SafeGuide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🔒 SafeGuide</div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="passwords.html">Пароли</a></li>
+                <li><a href="devices.html">Устройства</a></li>
+                <li><a href="privacy.html">Приватность</a></li>
+                <li><a href="social.html">Чек-лист</a></li>
+                <li><a href="quiz.html" style="color: var(--accent-blue);">Практикум</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">🎯 Практикум, Квиз и Глоссарий</h2>
+        <p class="page-subtitle">Проверьте свои знания на практике, научитесь выявлять фишинг и познакомьтесь с основными терминами безопасности.</p>
+
+        <!-- 1. КВИЗ -->
+        <div class="card">
+            <h3>🧠 Квиз: Проверь свои знания</h3>
+            <div id="quiz-container">
+                <div id="question-box">
+                    <p id="question-text" style="font-size: 1.1rem; font-weight: bold; margin-bottom: 1rem;"></p>
+                    <div id="options-box" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+                </div>
+                <div id="quiz-result" style="margin-top: 1rem; font-weight: bold; font-size: 1.1rem;"></div>
+                <button id="next-btn" class="btn" style="margin-top: 1rem; display: none; background: var(--accent-blue); color: var(--bg-main); border: none; cursor: pointer; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold;" onclick="nextQuestion()">Следующий вопрос</button>
+            </div>
+        </div>
+
+        <!-- 2. СИМУЛЯТОР ФИШИНГА -->
+        <div class="card">
+            <h3>🎣 Симулятор фишинга: Настоящее письмо или Подделка?</h3>
+            <p>Определите, является ли предложенный пример безопасным или это уловка мошенников.</p>
+            <div style="background: #0f172a; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); margin-top: 1rem;">
+                <div id="phishing-scenario" style="margin-bottom: 1rem; font-family: monospace; background: #1e293b; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--accent-purple); white-space: pre-line;"></div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn" style="background: var(--success-color); color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: bold;" onclick="checkPhishing(false)">✅ Безопасно</button>
+                    <button class="btn" style="background: var(--danger-color); color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: bold;" onclick="checkPhishing(true)">🚨 Фишинг</button>
+                </div>
+                <div id="phishing-feedback" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </div>
+
+        <!-- 3. ИНТЕРАКТИВНЫЙ ГЛОССАРИЙ -->
+        <div class="card">
+            <h3>📖 Интерактивный глоссарий терминов</h3>
+            <p>Используйте поиск, чтобы быстро найти значение нужного термина.</p>
+            <input type="text" id="glossary-search" placeholder="Поиск термина (например, VPN, 2FA, фишинг)..." oninput="filterGlossary()" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-main); color: #fff; margin: 1rem 0; outline: none;">
+            
+            <div id="glossary-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card glossary-item" data-term="2fa двухфакторная аутентификация" style="margin: 0; background: #0f172a;">
+                    <b style="color: var(--accent-blue);">2FA (Двухфакторная аутентификация)</b>
+                    <p>Метод идентификации, требующий предъявления двух разных типов доказательств (например, пароль + код из приложения).</p>
+                </div>
+                <div class="card glossary-item" data-term="фишинг phishing мошенники" style="margin: 0; background: #0f172a;">
+                    <b style="color: var(--accent-blue);">Фишинг</b>
+                    <p>Вид интернет-мошенничества, цель которого — выманить у пользователя конфиденциальные данные (пароли, номера карт).</p>
+                </div>
+                <div class="card glossary-item" data-term="vpn прокси" style="margin: 0; background: #0f172a;">
+                    <b style="color: var(--accent-blue);">VPN (Virtual Private Network)</b>
+                    <p>Технология шифрованного соединения, скрывающая ваш реальный IP-адрес и защищающая трафик от провайдера.</p>
+                </div>
+                <div class="card glossary-item" data-term="битлокер bitlocker filevault шифрование диска" style="margin: 0; background: #0f172a;">
+                    <b style="color: var(--accent-blue);">Полнодисковое шифрование</b>
+                    <p>Шифрование всей информации на жестком диске (BitLocker на Windows, FileVault на macOS) для защиты от физической кражи.</p>
+                </div>
+                <div class="card glossary-item" data-term="сквозное шифрование end-to-end" style="margin: 0; background: #0f172a;">
+                    <b style="color: var(--accent-blue);">Сквозное шифрование (End-to-End)</b>
+                    <p>Метод передачи сообщений, при котором доступ к расшифровке есть только у отправителя и получателя.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SafeGuide. Гид по цифровой безопасности.</p>
+        
+        <div style="margin-top: 0.75rem; opacity: 0.7; transition: opacity 0.3s; display: inline-block;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+            <a href="https://www.liveinternet.ru/click" target="_blank"><img id="licnt2215" width="88" height="31" style="border:0" title="LiveInternet: показано число просмотров и посетителей за 24 часа" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""/></a><script>(function(d,s){d.getElementById("licnt2215").src="https://counter.yadro.ru/hit?t52.6;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script><!--/LiveInternet-->
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
