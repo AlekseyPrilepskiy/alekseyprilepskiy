@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/alekseyprilepskiy/">
+    <title>Социальная инженерия — SafeGuide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>🔒 SafeGuide</h1>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="passwords.html">Пароли</a></li>
+                <li><a href="devices.html">Устройства</a></li>
+                <li><a href="privacy.html">Приватность</a></li>
+                <li><a href="social.html">Безопасность</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>🛡️ Чек-лист безопасности и фишинг</h2>
+
+        <div class="card">
+            <h3>Ваш прогресс защиты</h3>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">0%</div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="check1">
+                <label for="check1">Установил менеджер паролей и сменил слабые пароли</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check2">
+                <label for="check2">Включил 2FA на почте и в социальных сетях</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check3">
+                <label for="check3">Включил шифрование диска (BitLocker / FileVault)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check4">
+                <label for="check4">Установил блокировщик рекламы и трекеров (uBlock Origin)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check5">
+                <label for="check5">Настроил автообновления операционной системы</label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>⚠️ Как распознать фишинг</h3>
+            <ul>
+                <li>Всегда проверяйте доменное имя сайта (например, `g00gle.com` вместо `google.com`).</li>
+                <li>Банки и поддержка никогда не просят назвать код из СМС или CVV-код.</li>
+                <li>Не переходите по ссылкам из подозрительных писем и сообщений в мессенджерах.</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
