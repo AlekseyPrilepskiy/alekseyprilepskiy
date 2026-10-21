@@ -235,7 +235,12 @@ function filterGlossary() {
         }
     });
 }
-
+window.addEventListener('scroll', function() {
+  const footer = document.querySelector('footer');
+  if (footer && footer.getBoundingClientRect().top <= window.innerHeight) {
+    sberAdsFetch('reachGoal', 'scroll_to_footer');
+  }
+});
 // Автозапуск квиза и симулятора при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     loadQuiz();
