@@ -238,3 +238,25 @@ footer {
     margin-top: 5rem;
     font-size: 0.9rem;
 }
+
+.btn-telegram {
+    background-color: #0088cc; /* Тёмно-синий фон */
+    color: #ffffff;            /* Белый цвет текста */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Эффект при наведении мышкой */
+.btn-telegram:hover {
+    background-color: #006699; /* Чуть более тёмный синий при наведении */
+}
+
+/* Эффект при нажатии */
+.btn-telegram:active {
+    transform: scale(0.98);
+}
