@@ -46,29 +46,6 @@
     </main>
 
 
-    <button id="shareTelegramBtn">Поделиться в Telegram</button>
-
-    <!-- JavaScript: привязка отправки цели к клику -->
-    <script>
-    document.getElementById('shareTelegramBtn').addEventListener('click', function() {
-        // 1. Код отправки цели в MyTracker
-        var _tmr = window._tmr || (window._tmr = []);
-        _tmr.push({
-        id: '3805474', 
-        type: 'reachGoal',
-        goal: 'share_article',
-        params: {
-            article_title: document.title, // Название текущей статьи
-            platform: 'Telegram'
-        },
-        value: 10
-        });
-
-        // 2. Логика открытия окна шеринга (например, перенаправление в Telegram)
-        window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href), '_blank');
-    });
-    </script>
-
     <footer>
         <p>&copy; 2026 SafeGuide. Гид по цифровой безопасности.</p>
         
@@ -144,6 +121,29 @@
                 </a>
             </div>
         </div>
+
+        <button id="shareTelegramBtn">Поделиться в Telegram</button>
+
+    <!-- JavaScript: привязка отправки цели к клику -->
+    <script>
+    document.getElementById('shareTelegramBtn').addEventListener('click', function() {
+        // 1. Код отправки цели в MyTracker
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({
+        id: '3805474', 
+        type: 'reachGoal',
+        goal: 'share_article',
+        params: {
+            article_title: document.title, // Название текущей статьи
+            platform: 'Telegram'
+        },
+        value: 10
+        });
+
+        // 2. Логика открытия окна шеринга (например, перенаправление в Telegram)
+        window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href), '_blank');
+    });
+    </script>
     </footer>
 </body>
 </html>
