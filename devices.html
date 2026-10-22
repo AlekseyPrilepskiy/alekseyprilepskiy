@@ -86,6 +86,23 @@
         </div>
     </main>
 
+    <!-- Скрипт второй цели: Глубокое чтение (через 60 секунд) -->
+    <script>
+    setTimeout(function() {
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({
+            id: '3805474',
+            type: 'reachGoal',
+            goal: 'deep_read',
+            params: {
+                article_title: document.title,
+                read_type: 'time_60sec'
+            },
+            value: 5
+        });
+    }, 60000); // 60000 мс = 1 минута
+    </script>
+
     <footer>
         <p>&copy; 2026 SafeGuide. Гид по цифровой безопасности.</p>
         
